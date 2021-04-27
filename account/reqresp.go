@@ -10,9 +10,9 @@ type (
 	}
 
 	GetUserRequest struct {
-		Email string `json:"email"`
+		Id string `json:"id"`
 	}
 	GetUserResponce struct {
-		Id string `json:"id"`
+		Email string `json:"email"`
 	}
 )
