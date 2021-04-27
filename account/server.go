@@ -14,10 +14,14 @@ func NewHTTPServer(ctx context.Context, endpoints Endpoints) http.Handler {
 
 	r.Methods("POST").Path("/user").Handler(httptransport.NewServer(
 		endpoints.CreateUser,
+		decodeUserReq,
+		encodeResponce,
 	))
 
 	r.Methods("GET").Path("/user/{id}").Handler(httptransport.NewServer(
 		endpoints.GetUser,
+		decodeEmailReq,
+		encodeResponce,
 	))
 
 	return r
