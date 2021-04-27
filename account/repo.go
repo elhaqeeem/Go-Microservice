@@ -39,5 +39,12 @@ func (repo *repo) CreateUser(ctx context.Context, user User) error {
 }
 
 func (repo *repo) GetUser(ctx context.Context, id string) (string, error) {
+	var email string
+	err := repo.db.QueryRow("SELECT email FROM user WHERE id = $1", id).Scan(&email)
 
+	if err != nil {
+		return "", RepoErr
+	}
+
+	return email, nil
 }
