@@ -35,6 +35,7 @@ func (repo *repo) CreateUser(ctx context.Context, user User) error {
 	if err != nil {
 		return err
 	}
+
 	return nil
 }
 
