@@ -24,7 +24,7 @@ func NewRepo(db *sql.DB, logger log.Logger) Repository {
 
 func (repo *repo) CreateUser(ctx context.Context, user User) error {
 	sql := `
-		INSERT INTO user (id, email, password) 
+		INSERT INTO "user" (id, email, password) 
 		VALUES ($1, $2, $3)`
 
 	if user.Email == "" || user.Password == "" {
@@ -41,7 +41,7 @@ func (repo *repo) CreateUser(ctx context.Context, user User) error {
 
 func (repo *repo) GetUser(ctx context.Context, id string) (string, error) {
 	var email string
-	err := repo.db.QueryRow("SELECT email FROM user WHERE id = $1", id).Scan(&email)
+	err := repo.db.QueryRow("SELECT email FROM \"user\" WHERE id = $1", id).Scan(&email)
 
 	if err != nil {
 		return "", errRepo
