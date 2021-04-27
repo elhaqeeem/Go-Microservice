@@ -4,6 +4,7 @@ import (
 	"context"
 
 	"github.com/go-kit/kit/log"
+	"github.com/go-kit/kit/log/level"
 	"github.com/gofrs/uuid"
 )
 
@@ -29,8 +30,16 @@ func (s service) CreateUser(ctx context.Context, email string, password string) 
 		Email:    email,
 		Password: password,
 	}
+
+	if err := s.repository.CreateUser(ctx, user); err != nil {
+		level.Error(logger).Log("err", err)
+		return "", err
+	}
+
+	logger.Log("create user", id)
+	return "Success", nil
 }
 
 func (s service) GetUser(ctx context.Context, id string) (string, error) {
-
+	return "", nil
 }
