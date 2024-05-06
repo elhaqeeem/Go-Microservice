@@ -20,7 +20,7 @@ import (
 	"github.com/go-kit/kit/log/level"
 )
 
-const dbsource = "postgresql://postgres:postgres@localhost:5432/gomc?sslmode=disable"
+const dbsource = "postgres://koyeb-adm:3JihHjqwX6xT@ep-summer-dawn-a27pf9in.eu-central-1.pg.koyeb.app/koyebdb"
 
 func main() {
 	var httpAddr = flag.String("http", ":8080", "http listen address")
