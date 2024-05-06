@@ -20,7 +20,7 @@ import (
 	"github.com/go-kit/kit/log/level"
 )
 
-const dbsource = "user='koyeb-adm' password=******** host=ep-summer-dawn-a27pf9in.eu-central-1.pg.koyeb.app dbname='koyebdb'"
+const dbsource = "user='koyeb-adm' password=3JihHjqwX6xT host=ep-summer-dawn-a27pf9in.eu-central-1.pg.koyeb.app dbname='koyebdb'"
 
 func main() {
 	var httpAddr = flag.String("http", ":8080", "http listen address")
